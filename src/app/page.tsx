@@ -145,8 +145,14 @@ export default function FrenchImmersionPage() {
     <>
       <MiniHeader
         ctaLabel="Register for French Immersion"
+        ctaShortLabel="Register"
         crossLinkLabel="General Admissions"
         crossLinkHref="/admissions"
+        navLinks={[
+          { label: "Why French", href: "#why-french" },
+          { label: "Sample Day", href: "#sample-day" },
+          { label: "FAQ", href: "#faq" },
+        ]}
       />
 
       {/* HERO */}
@@ -204,7 +210,7 @@ export default function FrenchImmersionPage() {
       </section>
 
       {/* WHY FRENCH, WHY NOW */}
-      <Section tone="cream">
+      <Section tone="cream" id="why-french">
         <Reveal className="mx-auto max-w-2xl text-center">
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-orange">
             Why French Immersion
@@ -258,7 +264,7 @@ export default function FrenchImmersionPage() {
       </Section>
 
       {/* SAMPLE DAY */}
-      <Section tone="cream">
+      <Section tone="cream" id="sample-day">
         <div className="grid gap-12 md:grid-cols-2 md:items-center">
           <Reveal>
             <Photo
@@ -346,7 +352,7 @@ export default function FrenchImmersionPage() {
       </Section>
 
       {/* FAQ */}
-      <Section tone="cream" narrow>
+      <Section tone="cream" narrow id="faq">
         <Reveal className="text-center">
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-orange">
             Common Questions
@@ -377,7 +383,7 @@ export default function FrenchImmersionPage() {
           <LeadForm
             endpoint="/api/french-immersion"
             thankYouHref="/thank-you/french-immersion"
-            submitLabel="Register for French Immersion"
+            submitLabel="Submit"
             className="space-y-5"
           >
             <div className="grid gap-5 sm:grid-cols-2">

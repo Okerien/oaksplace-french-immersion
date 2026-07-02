@@ -158,8 +158,14 @@ export default function AdmissionsPage() {
     <>
       <MiniHeader
         ctaLabel="Enquire About Admissions"
+        ctaShortLabel="Enquire"
         crossLinkLabel="French Immersion Programme"
         crossLinkHref="/"
+        navLinks={[
+          { label: "Programmes", href: "#programmes" },
+          { label: "How It Works", href: "#how-it-works" },
+          { label: "FAQ", href: "#faq" },
+        ]}
       />
 
       {/* HERO */}
@@ -232,7 +238,7 @@ export default function AdmissionsPage() {
       </Section>
 
       {/* PROGRAMMES */}
-      <Section tone="creamDark">
+      <Section tone="creamDark" id="programmes">
         <Reveal className="mx-auto max-w-2xl text-center">
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-orange">
             Our Programmes
@@ -329,7 +335,7 @@ export default function AdmissionsPage() {
       </Section>
 
       {/* HOW A TOUR WORKS */}
-      <Section tone="cream">
+      <Section tone="cream" id="how-it-works">
         <Reveal className="mx-auto max-w-2xl text-center">
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-orange">
             What Happens Next
@@ -378,7 +384,7 @@ export default function AdmissionsPage() {
       </Section>
 
       {/* FAQ */}
-      <Section tone="cream" narrow>
+      <Section tone="cream" narrow id="faq">
         <Reveal className="text-center">
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-orange">
             Common Questions
@@ -409,7 +415,7 @@ export default function AdmissionsPage() {
           <LeadForm
             endpoint="/api/admissions"
             thankYouHref="/thank-you/admissions"
-            submitLabel="Enquire About Admissions"
+            submitLabel="Submit"
             className="space-y-5"
           >
             <div className="grid gap-5 sm:grid-cols-2">

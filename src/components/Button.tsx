@@ -10,6 +10,7 @@ type ButtonProps = {
   size?: "sm" | "md" | "lg" | "xl";
   className?: string;
   children: React.ReactNode;
+  onClick?: () => void;
 };
 
 const variants = {
@@ -28,10 +29,11 @@ const sizes = {
 
 const MotionLink = motion.create(Link);
 
-export function Button({ href, variant = "primary", size = "md", className, children }: ButtonProps) {
+export function Button({ href, variant = "primary", size = "md", className, children, onClick }: ButtonProps) {
   return (
     <MotionLink
       href={href}
+      onClick={onClick}
       whileHover={{ y: -2, scale: 1.02 }}
       whileTap={{ scale: 0.97, y: 0 }}
       transition={{ type: "spring", stiffness: 400, damping: 20 }}
