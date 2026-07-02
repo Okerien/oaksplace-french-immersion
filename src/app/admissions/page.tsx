@@ -185,10 +185,10 @@ export default function AdmissionsPage() {
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
               <Button href="#enquire" size="lg">
-                Enquire About Admissions
+                Register
               </Button>
               <Button href="#enquire" variant="ghost" size="lg">
-                Book a School Tour
+                Register for a Tour
               </Button>
             </div>
             <div className="mt-6 flex flex-wrap gap-2">
@@ -432,7 +432,7 @@ export default function AdmissionsPage() {
         </Reveal>
       </Section>
 
-      <StickyMobileCTA label="Enquire About Admissions" href="#enquire" />
+      <StickyMobileCTA label="Register Now" href="#enquire" />
     </>
   );
 }
