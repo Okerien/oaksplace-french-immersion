@@ -8,6 +8,7 @@ import {
   Calendar,
   Clock,
   Sun,
+  Wallet,
   MessageCircleHeart,
 } from "lucide-react";
 import { MiniHeader } from "@/components/MiniHeader";
@@ -18,7 +19,6 @@ import { Pill } from "@/components/Pill";
 import { Button } from "@/components/Button";
 import { CountdownTimer } from "@/components/CountdownTimer";
 import { FAQAccordion } from "@/components/FAQAccordion";
-import { TestimonialCard } from "@/components/TestimonialCard";
 import { StickyMobileCTA } from "@/components/StickyMobileCTA";
 import { LeadForm } from "@/components/form/LeadForm";
 import { InputField, SelectField, TextareaField } from "@/components/form/Field";
@@ -100,7 +100,7 @@ const faqItems = [
   {
     question: "What are the programme fees?",
     answer:
-      "Fees and payment options are shared personally when you register — our team will walk you through everything, with no pressure to commit on the spot.",
+      "The full four-week programme (3rd – 28th August) is ₦120,000. Let us know if you'd like to discuss payment options when you register.",
   },
   {
     question: "What if I can only commit to part of the month?",
@@ -116,27 +116,6 @@ const faqItems = [
     question: "How do I secure my child's spot?",
     answer:
       "Spaces are limited by design — small groups are core to how Montessori works. Complete the form below and our team will confirm availability and next steps.",
-  },
-];
-
-const testimonials = [
-  {
-    quote:
-      "What I loved most is that it never felt like 'extra school' — my daughter came home singing French songs and asking to do it again the next day.",
-    name: "Amaka O.",
-    role: "OaksPlace Parent",
-  },
-  {
-    quote:
-      "The Guides already knew how to hold my son's attention. It felt like an extension of his classroom, not a random summer activity.",
-    name: "Tunde F.",
-    role: "OaksPlace Parent",
-  },
-  {
-    quote:
-      "I was worried a whole month would be too much for a 4-year-old. It wasn't — the days were full but never overwhelming.",
-    name: "Chiamaka N.",
-    role: "OaksPlace Parent",
   },
 ];
 
@@ -176,6 +155,7 @@ export default function FrenchImmersionPage() {
               </Button>
             </div>
             <div className="mt-6 flex flex-wrap gap-2">
+              <Pill icon={Wallet}>{frenchImmersion.priceLabel}</Pill>
               <Pill icon={Users}>Ages 3 – 6</Pill>
               <Pill icon={ShieldCheck}>Small Groups</Pill>
               <Pill icon={Sparkles}>Sangotedo, Lagos</Pill>
@@ -184,8 +164,8 @@ export default function FrenchImmersionPage() {
 
           <Reveal delay={0.15}>
             <Photo
-              src="/photos/french-immersion.jpg"
-              alt="Children enjoying French Immersion activities at OaksPlace Montessori"
+              src="/photos/real-classroom.jpg"
+              alt="An OaksPlace Montessori classroom in Sangotedo"
               aspect="aspect-[4/3.2]"
               className="shadow-xl"
               sizes="(min-width: 768px) 50vw, 100vw"
@@ -244,7 +224,7 @@ export default function FrenchImmersionPage() {
               What Makes This Different
             </p>
             <h2 className="mt-3 text-3xl font-medium text-dark-green md:text-4xl">
-              A Real Montessori Programme — Not a Rented Hall
+              A Real Montessori Bilingual Programme — Not French As Subject Teaching
             </h2>
             <p className="mt-5 leading-relaxed text-muted">
               Plenty of holiday programmes teach a few French words. This one is built on the
@@ -268,8 +248,8 @@ export default function FrenchImmersionPage() {
         <div className="grid gap-12 md:grid-cols-2 md:items-center">
           <Reveal>
             <Photo
-              src="/photos/gallery-french-fun.jpg"
-              alt="A day of French Immersion activities"
+              src="/photos/real-french-books.jpg"
+              alt="French-language books on the reading shelf at OaksPlace Montessori"
               aspect="aspect-[4/3]"
               sizes="(min-width: 768px) 50vw, 100vw"
             />
@@ -329,25 +309,6 @@ export default function FrenchImmersionPage() {
               aspect="aspect-[3/4]"
             />
           </Reveal>
-        </div>
-      </Section>
-
-      {/* TRUST */}
-      <Section tone="creamDark">
-        <Reveal className="mx-auto max-w-2xl text-center">
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-orange">
-            What Parents Are Saying
-          </p>
-          <h2 className="mt-3 text-3xl font-medium text-dark-green md:text-4xl">
-            Trusted by Families Across Lagos
-          </h2>
-        </Reveal>
-        <div className="mt-12 grid gap-6 md:grid-cols-3">
-          {testimonials.map((t, i) => (
-            <Reveal key={t.name} delay={i * 0.08}>
-              <TestimonialCard {...t} />
-            </Reveal>
-          ))}
         </div>
       </Section>
 

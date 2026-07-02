@@ -18,7 +18,6 @@ import { Photo } from "@/components/Photo";
 import { Pill } from "@/components/Pill";
 import { Button } from "@/components/Button";
 import { FAQAccordion } from "@/components/FAQAccordion";
-import { TestimonialCard } from "@/components/TestimonialCard";
 import { StickyMobileCTA } from "@/components/StickyMobileCTA";
 import { LeadForm } from "@/components/form/LeadForm";
 import { InputField, TextareaField } from "@/components/form/Field";
@@ -129,27 +128,6 @@ const faqItems = [
     question: "Do you offer elementary education?",
     answer:
       "Not yet. We currently serve children 6 months to 6 years, with plans to expand into the elementary years as our community grows.",
-  },
-];
-
-const testimonials = [
-  {
-    quote:
-      "What stood out on our first tour was how calm and purposeful everything felt — nothing about it felt like a typical daycare.",
-    name: "Folake A.",
-    role: "OaksPlace Parent",
-  },
-  {
-    quote:
-      "My son transitioned from being shy about everything to confidently choosing his own activities within a few months.",
-    name: "Ifeanyi C.",
-    role: "OaksPlace Parent",
-  },
-  {
-    quote:
-      "The Guides genuinely know my daughter — not just her name, but how she learns best. That partnership matters to us.",
-    name: "Bukola S.",
-    role: "OaksPlace Parent",
   },
 ];
 
@@ -362,25 +340,6 @@ export default function AdmissionsPage() {
           No pressure, no obligation — just an honest look at whether OaksPlace is right for your
           family.
         </Reveal>
-      </Section>
-
-      {/* TESTIMONIALS */}
-      <Section tone="creamDark">
-        <Reveal className="mx-auto max-w-2xl text-center">
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-orange">
-            What Parents Are Saying
-          </p>
-          <h2 className="mt-3 text-3xl font-medium text-dark-green md:text-4xl">
-            Trusted by Families Across Lagos
-          </h2>
-        </Reveal>
-        <div className="mt-12 grid gap-6 md:grid-cols-3">
-          {testimonials.map((t, i) => (
-            <Reveal key={t.name} delay={i * 0.08}>
-              <TestimonialCard {...t} />
-            </Reveal>
-          ))}
-        </div>
       </Section>
 
       {/* FAQ */}

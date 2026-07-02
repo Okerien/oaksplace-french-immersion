@@ -14,4 +14,6 @@ export const frenchImmersion = {
   startDate: "2026-08-03T08:00:00+01:00",
   endDate: "2026-08-28T13:00:00+01:00",
   dateRangeLabel: "3rd – 28th August 2026",
+  price: "₦120,000",
+  priceLabel: "₦120,000 · Full 4 Weeks",
 };
