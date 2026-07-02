@@ -304,7 +304,7 @@ export default function FrenchImmersionPage() {
             <p className="mt-5 leading-relaxed text-muted">
               From Montessori bells for pitch and rhythm to the piano and tambourine used in our
               French songs and movement circles — every material in our classroom is chosen with
-              intention, not bought in bulk for a one-off event.
+              intention.
             </p>
           </Reveal>
         </div>
