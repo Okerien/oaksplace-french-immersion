@@ -2,6 +2,7 @@ import {
   Sparkles,
   Users,
   Globe2,
+  Brain,
   Palette,
   BookOpenText,
   ShieldCheck,
@@ -32,6 +33,12 @@ const benefits = [
       "Early exposure to a second language builds cognitive flexibility, sharper listening skills, and confidence that lasts well beyond the summer.",
   },
   {
+    icon: Brain,
+    title: "Take Advantage of the Sensitive Period for Language",
+    description:
+      "Between 0–6 years, children naturally absorb language with remarkable ease. Through French immersion, they learn by listening, speaking, singing, and playing — not through worksheets.",
+  },
+  {
     icon: Sparkles,
     title: "Learning Through Joy",
     description:
@@ -48,7 +55,7 @@ const benefits = [
 const differentiators = [
   {
     icon: ShieldCheck,
-    title: "Authentic Montessori, Not “Camp Activities”",
+    title: "Authentic Montessori",
     description:
       "Every session is intentionally prepared, not improvised — the same purposeful approach behind our regular classrooms.",
   },
@@ -95,7 +102,7 @@ const faqItems = [
   {
     question: "What ages is this suitable for?",
     answer:
-      "The programme is best suited for children ages 3–6. Not sure if your child is ready? Reach out and we'll help you decide.",
+      "The programme is best suited for children ages 18 months to 6 years. Not sure if your child is ready? Reach out and we'll help you decide.",
   },
   {
     question: "What are the programme fees?",
@@ -156,7 +163,7 @@ export default function FrenchImmersionPage() {
             </div>
             <div className="mt-6 flex flex-wrap gap-2">
               <Pill icon={Wallet}>{frenchImmersion.priceLabel}</Pill>
-              <Pill icon={Users}>Ages 3 – 6</Pill>
+              <Pill icon={Users}>Ages 18 Months – 6 Years</Pill>
               <Pill icon={ShieldCheck}>Small Groups</Pill>
               <Pill icon={Sparkles}>Sangotedo, Lagos</Pill>
             </div>
@@ -183,8 +190,7 @@ export default function FrenchImmersionPage() {
           </p>
           <CountdownTimer target={frenchImmersion.startDate} />
           <p className="max-w-xl text-sm text-cream/70">
-            Spaces are limited — small groups are core to how Montessori works, not a marketing
-            gimmick.
+            Spaces are limited — small groups are core to how Montessori works.
           </p>
         </div>
       </section>
@@ -199,7 +205,7 @@ export default function FrenchImmersionPage() {
             More Than a Summer Activity
           </h2>
         </Reveal>
-        <div className="mt-12 grid gap-6 md:grid-cols-3">
+        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {benefits.map((benefit, i) => (
             <Reveal
               key={benefit.title}
@@ -278,36 +284,28 @@ export default function FrenchImmersionPage() {
         </div>
       </Section>
 
-      {/* GLIMPSES */}
+      {/* REAL MATERIALS */}
       <Section tone="creamDark">
-        <Reveal className="mx-auto max-w-2xl text-center">
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-orange">
-            Glimpses of OaksPlace
-          </p>
-          <h2 className="mt-3 text-3xl font-medium text-dark-green md:text-4xl">
-            Music, Art, and Stories — Every Single Day
-          </h2>
-        </Reveal>
-        <div className="mt-10 grid grid-cols-2 gap-4 md:grid-cols-4">
+        <div className="grid gap-12 md:grid-cols-2 md:items-center">
           <Reveal>
-            <Photo src="/photos/gallery-music.jpg" alt="Music circle at OaksPlace" aspect="aspect-[3/4]" />
-          </Reveal>
-          <Reveal delay={0.06}>
-            <Photo src="/photos/gallery-art.jpg" alt="Art activities at OaksPlace" aspect="aspect-[3/4]" />
-          </Reveal>
-          <Reveal delay={0.12}>
             <Photo
-              src="/photos/gallery-storytime.jpg"
-              alt="Storytime at OaksPlace"
-              aspect="aspect-[3/4]"
+              src="/photos/real-music-materials.jpg"
+              alt="Montessori bells, piano, and tambourine used in French songs at OaksPlace"
+              aspect="aspect-[4/3]"
             />
           </Reveal>
-          <Reveal delay={0.18}>
-            <Photo
-              src="/photos/blog-french-immersion.jpg"
-              alt="French Immersion moments at OaksPlace"
-              aspect="aspect-[3/4]"
-            />
+          <Reveal delay={0.1}>
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-orange">
+              Real Montessori Materials
+            </p>
+            <h2 className="mt-3 text-3xl font-medium text-dark-green md:text-4xl">
+              The Materials Your Child Will Actually Use
+            </h2>
+            <p className="mt-5 leading-relaxed text-muted">
+              From Montessori bells for pitch and rhythm to the piano and tambourine used in our
+              French songs and movement circles — every material in our classroom is chosen with
+              intention, not bought in bulk for a one-off event.
+            </p>
           </Reveal>
         </div>
       </Section>

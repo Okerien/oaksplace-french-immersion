@@ -13,7 +13,7 @@ import { Footer } from "@/components/Footer";
 export const metadata: Metadata = {
   title: "French Immersion Summer Programme | OaksPlace Montessori",
   description:
-    "A month of joyful, hands-on French immersion inside an authentic Montessori environment in Sangotedo, Lagos. 3rd-28th August 2026. Ages 3-6.",
+    "A month of joyful, hands-on French immersion inside an authentic Montessori environment in Sangotedo, Lagos. 3rd-28th August 2026. Ages 18 months-6 years.",
 };
 
 export default function RootLayout({
