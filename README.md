@@ -7,7 +7,7 @@ forms.
 
 ## Pages
 
-- `/` — French Immersion Summer Programme (3–28 Aug 2026, ages 3–6)
+- `/` — French Immersion Summer Programme (3–28 Aug 2026, ages 18 months–6 years)
 - `/admissions` — General admissions enquiry
 - `/thank-you/french-immersion`, `/thank-you/admissions` — post-submit
   confirmation pages (placeholders left for ad-pixel conversion tracking)
@@ -22,22 +22,59 @@ npm run dev -- -p 3001
 Runs on port 3001 by default so it can run alongside the main OaksPlace
 site (which uses port 3000).
 
-## Forms
+## Forms & Email
 
-Both lead forms POST to `/api/french-immersion` and `/api/admissions`,
-which currently just log the submission server-side. Wire these up to a
-real email/CRM service (Resend, SendGrid, a Google Sheet, etc.) before
-launch — see the `TODO` comments in `src/app/api/*/route.ts`.
+Both lead forms POST to `/api/french-immersion` and `/api/admissions`.
+Each submission triggers two emails via [Resend](https://resend.com):
+
+1. A **notification** to `info@oaksplacemontessori.com` (or whatever
+   `NOTIFY_TO` is set to) with the lead's details — reply-to is set to the
+   parent's email, so hitting "reply" goes straight to them.
+2. A branded **confirmation** email to the parent.
+
+Without a `RESEND_API_KEY` set, submissions are just logged to the server
+console instead of emailed — so local development doesn't require a Resend
+account. Copy `.env.example` to `.env.local` and fill in real values to test
+sending locally.
+
+### Required environment variables
+
+| Variable | Purpose |
+|---|---|
+| `RESEND_API_KEY` | From [resend.com/api-keys](https://resend.com/api-keys) |
+| `EMAIL_FROM` | Sending address — its domain must be verified in Resend |
+| `NOTIFY_TO` | Where lead notifications land (defaults to `info@oaksplacemontessori.com`) |
+
+## Deploying to Netlify
+
+This repo deploys to Netlify zero-config (Next.js 16 is auto-detected, no
+plugin installation needed). Steps:
+
+1. **New site from Git** in Netlify → pick this repo
+   (`Okerien/oaksplace-french-immersion`) → branch `main`. Build command
+   and output are picked up automatically (also declared in `netlify.toml`).
+2. **Environment variables** — in Site settings → Environment variables,
+   add `RESEND_API_KEY`, `EMAIL_FROM`, and `NOTIFY_TO` (see table above).
+3. **Custom domain** — in Site settings → Domain management → Add a
+   domain, enter `frenchimmersion.oaksplacemontessori.com`. Netlify will
+   show a CNAME target (something like `<site-name>.netlify.app`) — add
+   that as a CNAME record for the `frenchimmersion` subdomain wherever
+   `oaksplacemontessori.com`'s DNS is managed. If DNS is already on Netlify
+   DNS, adding the domain in the dashboard configures this automatically.
+4. **Resend domain verification** — in the Resend dashboard, add
+   `oaksplacemontessori.com` as a domain and add the DKIM/SPF DNS records
+   it gives you (same DNS host as step 3). Sending will fail until this
+   domain shows "Verified."
 
 ## Before launching ads
 
-- Replace the placeholder testimonials in `src/app/page.tsx` and
-  `src/app/admissions/page.tsx` with real parent quotes.
-- Wire the two API routes to an actual notification channel.
 - Add your Meta/Google/TikTok pixel snippets to the thank-you pages (see
   the comments at the top of each `thank-you/*/page.tsx`).
+- Confirm the Resend domain shows "Verified" and send a real test
+  submission before turning on ad spend.
 
 ## Stack
 
-Next.js 16 (App Router) · Tailwind CSS v4 · Framer Motion · TypeScript.
-Shares the OaksPlace brand system (colors, fonts, logo) with the main site.
+Next.js 16 (App Router) · Tailwind CSS v4 · Framer Motion · TypeScript ·
+Resend. Shares the OaksPlace brand system (colors, fonts, logo) with the
+main site.
