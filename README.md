@@ -48,23 +48,10 @@ sending locally.
 ## Deploying to Netlify
 
 This repo deploys to Netlify zero-config (Next.js 16 is auto-detected, no
-plugin installation needed). Steps:
-
-1. **New site from Git** in Netlify → pick this repo
-   (`Okerien/oaksplace-french-immersion`) → branch `main`. Build command
-   and output are picked up automatically (also declared in `netlify.toml`).
-2. **Environment variables** — in Site settings → Environment variables,
-   add `RESEND_API_KEY`, `EMAIL_FROM`, and `NOTIFY_TO` (see table above).
-3. **Custom domain** — in Site settings → Domain management → Add a
-   domain, enter `frenchimmersion.oaksplacemontessori.com`. Netlify will
-   show a CNAME target (something like `<site-name>.netlify.app`) — add
-   that as a CNAME record for the `frenchimmersion` subdomain wherever
-   `oaksplacemontessori.com`'s DNS is managed. If DNS is already on Netlify
-   DNS, adding the domain in the dashboard configures this automatically.
-4. **Resend domain verification** — in the Resend dashboard, add
-   `oaksplacemontessori.com` as a domain and add the DKIM/SPF DNS records
-   it gives you (same DNS host as step 3). Sending will fail until this
-   domain shows "Verified."
+plugin installation needed). See **[DEPLOYMENT.md](./DEPLOYMENT.md)** for the
+full step-by-step runbook — it's tailored to this domain's actual setup
+(Namecheap DNS + Zoho Mail) with the exact DNS records to add and a note on
+why none of it breaks the existing Zoho email.
 
 ## Before launching ads
 
